@@ -196,46 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       VENUE BUTTON
-       ===================================================== */
-
-    const locationButton =
-        document.getElementById("locationButton");
-
-    const locationNote =
-        document.getElementById("locationNote");
-
-
-    if (locationButton) {
-
-        locationButton.addEventListener("click", () => {
-
-            /*
-             * No Google Maps URL was supplied in the
-             * wedding details, so this deliberately does
-             * not invent one.
-             *
-             * Replace the alert below with the actual
-             * Google Maps URL when available.
-             */
-
-            if (locationNote) {
-
-                locationNote.textContent =
-                    "Please add the official Muthu Mahal Google Maps link here.";
-
-                locationNote.style.color =
-                    "var(--gold-dark)";
-
-            }
-
-        });
-
-    }
-
-
     /* =====================================================
        ACTIVE NAVIGATION
        ===================================================== */
@@ -285,6 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     updateActiveNavigation();
+
+    window.addEventListener(
+        "resize",
+        updateActiveNavigation,
+        {
+            passive: true
+        }
+    );
 
 
     /* =====================================================

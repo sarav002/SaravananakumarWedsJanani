@@ -5,9 +5,9 @@
    ========================================================= */
 
 :root {
-    --green-dark: #123d2f;
-    --green: #19533f;
-    --green-light: #2d6a52;
+    --green-dark: #24113f;
+    --green: #4f2d7a;
+    --green-light: #7a59b7;
 
     --gold: #b58a3a;
     --gold-light: #d6b76a;
@@ -26,7 +26,7 @@
     --white-glass: rgba(255, 255, 255, 0.42);
     --border-glass: rgba(181, 138, 58, 0.34);
 
-    --shadow: 0 18px 45px rgba(18, 61, 47, 0.12);
+    --shadow: 0 18px 45px rgba(36, 17, 63, 0.14);
 
     --serif: "Cormorant Garamond", Georgia, serif;
     --script: "Great Vibes", cursive;
@@ -61,19 +61,19 @@ body {
     background:
         radial-gradient(
             circle at 10% 10%,
-            rgba(201, 130, 134, 0.12),
+            rgba(201, 130, 134, 0.14),
             transparent 28%
         ),
         radial-gradient(
             circle at 90% 30%,
-            rgba(181, 138, 58, 0.14),
+            rgba(214, 183, 106, 0.22),
             transparent 30%
         ),
         linear-gradient(
             135deg,
-            #fbf5e7 0%,
-            #f3e7c9 48%,
-            #fbf4e5 100%
+            #fff9ef 0%,
+            #f7e8c7 48%,
+            #fff5e8 100%
         );
 }
 
@@ -89,7 +89,7 @@ body::before {
 
     background-image:
         radial-gradient(
-            rgba(181, 138, 58, 0.35) 0.6px,
+            rgba(143, 103, 38, 0.35) 0.6px,
             transparent 0.6px
         );
 
@@ -171,7 +171,7 @@ img {
     justify-content: center;
     gap: 5px;
 
-    border: 1px solid rgba(181, 138, 58, 0.35);
+    border: 1px solid rgba(194, 162, 76, 0.35);
     border-radius: 50%;
 
     background: rgba(255, 255, 255, 0.45);
@@ -258,7 +258,7 @@ img {
 .nav-menu a:hover,
 .nav-menu a:focus {
     color: var(--gold-dark);
-    background: rgba(181, 138, 58, 0.08);
+    background: rgba(194, 162, 76, 0.08);
 }
 
 
@@ -292,11 +292,17 @@ img {
     content: "";
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
 
-    border: 1px solid rgba(181, 138, 58, 0.25);
-    border-radius: 50%;
+    border: 1px solid rgba(181, 138, 58, 0.2);
+    border-radius: 28px;
+    transform: rotate(18deg);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(214, 183, 106, 0.06)
+    );
 
     pointer-events: none;
 }
@@ -352,10 +358,16 @@ img {
     position: relative;
     z-index: 2;
 
-    width: min(100%, 700px);
+    width: min(100%, 760px);
 
-    padding: 35px 22px;
+    padding: 40px 16px;
 
+    display: grid;
+    gap: 26px;
+    align-items: center;
+}
+
+.hero-copy {
     text-align: center;
 }
 
@@ -385,43 +397,10 @@ img {
 
     font-family: var(--serif);
     font-size: 1.15rem;
-    line-height: 1.5;
+    line-height: 1.6;
     font-weight: 500;
-}
-
-.ornamental-divider {
-    margin: 22px auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-
-    color: var(--gold);
-}
-
-.ornamental-divider::before,
-.ornamental-divider::after {
-    content: "";
-
-    width: 60px;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--gold)
-        );
-}
-
-.ornamental-divider::after {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            var(--gold)
-        );
+    letter-spacing: 0.03em;
+    margin: 8px 0;
 }
 
 .invite-text {
@@ -432,29 +411,45 @@ img {
 }
 
 .couple-names {
-    margin: 20px 0;
+    margin: 18px 0 22px;
 
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 
     color: var(--green-dark);
 
-    font-family: var(--script);
-    font-weight: 400;
-    font-size: clamp(3.5rem, 17vw, 6.8rem);
-    line-height: 0.92;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 6.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
 
-    text-shadow: 0 3px 12px rgba(18, 61, 47, 0.08);
+    text-shadow: 0 3px 12px rgba(36, 17, 63, 0.08);
+}
+
+.hero-names {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.hero-names span {
+    display: inline;
 }
 
 .couple-names small {
-    margin: 11px 0;
-
     color: var(--gold);
 
     font-family: var(--serif);
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     line-height: 1;
+    white-space: nowrap;
 }
 
 .journey-text {
@@ -462,7 +457,8 @@ img {
 
     font-family: var(--serif);
     font-size: 1.15rem;
-    line-height: 1.45;
+    line-height: 1.6;
+    margin: 14px 0;
 }
 
 .gold-button {
@@ -487,7 +483,7 @@ img {
     letter-spacing: 0.12em;
     text-transform: uppercase;
 
-    box-shadow: 0 8px 20px rgba(18, 61, 47, 0.16);
+    box-shadow: 0 8px 20px rgba(36, 17, 63, 0.16);
 
     transition:
         transform 0.25s ease,
@@ -498,7 +494,7 @@ img {
 .gold-button:hover {
     background: var(--green);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(18, 61, 47, 0.2);
+    box-shadow: 0 12px 26px rgba(36, 17, 63, 0.2);
 }
 
 .hero-bottom-decoration {
@@ -598,8 +594,8 @@ img {
 .countdown-section {
     background:
         linear-gradient(
-            rgba(18, 61, 47, 0.97),
-            rgba(18, 61, 47, 0.97)
+            rgba(36, 17, 63, 0.97),
+            rgba(36, 17, 63, 0.97)
         );
 }
 
@@ -738,39 +734,31 @@ img {
 
 .event-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 24px 55px rgba(18, 61, 47, 0.16);
+    box-shadow: 0 24px 55px rgba(36, 17, 63, 0.16);
 }
 
 .event-decoration {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    top: 8px;
-    left: 12px;
-
-    color: var(--pink);
-    font-size: 2rem;
-
-    opacity: 0.7;
-}
-
-.event-icon {
-    width: 58px;
-    height: 58px;
+    width: 80px;
+    height: 80px;
 
     display: grid;
     place-items: center;
 
-    margin: 0 auto 18px;
+    color: var(--green-light);
+    font-size: 2.5rem;
 
-    color: var(--gold-dark);
-
-    border: 1px solid var(--gold);
+    opacity: 1;
+    border: 2px solid rgba(212, 182, 106, 0.3);
     border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.35);
-
-    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
 }
+
+
 
 .event-label {
     color: var(--gold-dark);
@@ -792,14 +780,12 @@ img {
 
 .event-details {
     display: grid;
-    gap: 11px;
+    gap: 8px;
 }
 
-.event-details div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
+.event-details p {
+    margin: 0;
+    padding: 0;
 
     color: var(--text);
 
@@ -807,15 +793,10 @@ img {
     font-size: 1.05rem;
 }
 
-.event-details i {
-    width: 17px;
-    color: var(--gold-dark);
-}
-
 .event-bottom-ornament {
     margin-top: 22px;
 
-    color: var(--pink);
+    color: var(--green-light);
 
     font-size: 1.3rem;
 }
@@ -856,7 +837,7 @@ img {
     width: 75px;
     height: 75px;
 
-    border: 1px solid rgba(181, 138, 58, 0.35);
+    border: 1px solid rgba(194, 162, 76, 0.35);
 }
 
 .venue-card::before {
@@ -875,21 +856,11 @@ img {
     border-top: 0;
 }
 
-.venue-icon {
-    width: 62px;
-    height: 62px;
-
-    display: grid;
-    place-items: center;
-
-    margin: 0 auto 18px;
-
-    color: var(--gold-dark);
-
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-
-    font-size: 1.25rem;
+.venue-emoji {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .venue-card h2 {
@@ -912,9 +883,7 @@ img {
 }
 
 .location-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
+    display: inline-block;
 
     padding: 12px 20px;
 
@@ -935,6 +904,7 @@ img {
     transition:
         transform 0.25s ease,
         background 0.25s ease;
+    text-decoration: none;
 }
 
 .location-button:hover {
@@ -984,7 +954,7 @@ img {
 }
 
 .flower-decoration {
-    color: var(--pink);
+    color: var(--green-light);
 
     letter-spacing: 10px;
 
@@ -1185,8 +1155,8 @@ img {
     background:
         linear-gradient(
             135deg,
-            #113e30,
-            #1a5540
+            #24113f,
+            #4f2d7a
         );
 
     color: var(--cream-light);
@@ -1326,7 +1296,7 @@ img {
 .footer-motif {
     margin-top: 25px;
 
-    color: var(--pink-light);
+    color: var(--gold-light);
 
     letter-spacing: 10px;
 }
@@ -1343,7 +1313,7 @@ img {
 
     text-align: center;
 
-    background: #0c2d23;
+    background: #1b102d;
 }
 
 .footer-ganesha {
@@ -1411,7 +1381,7 @@ img {
 
     top: -30px;
 
-    color: var(--pink);
+    color: var(--gold-light);
 
     opacity: 0;
 
@@ -1543,7 +1513,7 @@ img {
     }
 
     .hero-content {
-        padding: 50px 35px;
+        padding: 50px 18px;
     }
 
     .events-grid {
@@ -1615,11 +1585,7 @@ img {
     }
 
     .hero-content {
-        padding: 60px;
-    }
-
-    .couple-names {
-        font-size: clamp(5rem, 8vw, 7.5rem);
+        padding: 60px 24px;
     }
 
     .events-grid {
@@ -1661,5 +1627,25 @@ img {
 
     .final-names {
         font-size: clamp(5rem, 8vw, 7.5rem);
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-content {
+        padding: 26px 8px;
+        gap: 16px;
+    }
+
+    .hero-names {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        font-size: clamp(1.45rem, 6.2vw, 2.2rem);
+    }
+
+    .couple-names small {
+        font-size: 1.4rem;
     }
 }
